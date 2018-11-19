@@ -75,7 +75,7 @@
                 <constraint firstAttribute="trailing" secondItem="b1n-fp-7di" secondAttribute="trailing" id="lmb-AV-eyD"/>
                 <constraint firstItem="b1n-fp-7di" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mci-2b-Z7f"/>
                 <constraint firstItem="b1n-fp-7di" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sKU-B2-FjZ"/>
-                <constraint firstAttribute="trailing" secondItem="fsh-hH-hKG" secondAttribute="trailing" id="vVY-rg-Rwc"/>
+                <constraint firstItem="fsh-hH-hKG" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="vVY-rg-Rwc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
