@@ -57,6 +57,10 @@ open class ChatInputBar: ReusableXibView {
     @IBOutlet var constraintsForVisibleSendButton: [NSLayoutConstraint]!
     @IBOutlet var constraintsForHiddenSendButton: [NSLayoutConstraint]!
     @IBOutlet var tabBarContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var constraintTextViewLeading: NSLayoutConstraint!
+    @IBOutlet var constraintTextViewTrailing: NSLayoutConstraint!
+    @IBOutlet var constraintTextViewTop: NSLayoutConstraint!
+    @IBOutlet var constraintTextViewBottom: NSLayoutConstraint!
 
     class open func loadNib() -> ChatInputBar {
         let view = Bundle(for: self).loadNibNamed(self.nibName(), owner: nil, options: nil)!.first as! ChatInputBar
@@ -221,8 +225,13 @@ extension ChatInputBar {
         self.textView.layer.borderWidth = appearance.textInputAppearance.borderWidth
         self.textView.accessibilityIdentifier = appearance.textInputAppearance.accessibilityIdentifier
         appearance.textInputAppearance.customSetUpClosure?(self.textView)
+        self.constraintTextViewLeading.constant = appearance.textInputAppearance.textViewMargins.left
+        self.constraintTextViewTrailing.constant = appearance.textInputAppearance.textViewMargins.right
+        self.constraintTextViewTop.constant = appearance.textInputAppearance.textViewMargins.top
+        self.constraintTextViewBottom.constant = appearance.textInputAppearance.textViewMargins.bottom
         self.tabBarInterItemSpacing = appearance.tabBarAppearance.interItemSpacing
         self.tabBarContentInsets = appearance.tabBarAppearance.contentInsets
+        self.scrollView.backgroundColor = appearance.tabBarAppearance.backgroundColor
         self.sendButton.contentEdgeInsets = appearance.sendButtonAppearance.insets
         self.sendButton.setTitle(appearance.sendButtonAppearance.title, for: .normal)
         appearance.sendButtonAppearance.titleColors.forEach { (state, color) in
@@ -232,6 +241,7 @@ extension ChatInputBar {
         self.sendButton.accessibilityIdentifier = appearance.sendButtonAppearance.accessibilityIdentifier
         appearance.sendButtonAppearance.customSetUpClosure?(self.sendButton)
         self.tabBarContainerHeightConstraint.constant = appearance.tabBarAppearance.height
+        self.backgroundColor = appearance.backgroundColor
     }
 }
 

@@ -40,6 +40,7 @@ public struct ChatInputBarAppearance {
         public var interItemSpacing: CGFloat = 10
         public var height: CGFloat = 44
         public var contentInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        public var backgroundColor: UIColor? = .white
     }
 
     public struct TextInputAppearance {
@@ -52,6 +53,7 @@ public struct ChatInputBarAppearance {
         public var placeholderColor = UIColor.gray
         public var placeholderText = ""
         public var textInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        public var textViewMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         public let accessibilityIdentifier = "chatto.inputbar.inputfield.text"
         public var customSetUpClosure: ((ExpandableTextView) -> Void)?
     }
@@ -59,6 +61,7 @@ public struct ChatInputBarAppearance {
     public var sendButtonAppearance = SendButtonAppearance()
     public var tabBarAppearance = TabBarAppearance()
     public var textInputAppearance = TextInputAppearance()
+    public var backgroundColor: UIColor? = .white
 
     public init() {}
 }
