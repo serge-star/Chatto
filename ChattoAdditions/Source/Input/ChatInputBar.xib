@@ -75,7 +75,7 @@
                 <constraint firstAttribute="trailing" secondItem="b1n-fp-7di" secondAttribute="trailing" id="lmb-AV-eyD"/>
                 <constraint firstItem="b1n-fp-7di" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mci-2b-Z7f"/>
                 <constraint firstItem="b1n-fp-7di" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sKU-B2-FjZ"/>
-                <constraint firstItem="fsh-hH-hKG" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="vVY-rg-Rwc"/>
+                <constraint firstAttribute="trailing" secondItem="fsh-hH-hKG" secondAttribute="trailing" id="vVY-rg-Rwc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -89,7 +89,7 @@
                 <outlet property="constraintTextViewBottom" destination="4Vl-vV-gaa" id="00a-zD-k2k"/>
                 <outlet property="constraintTextViewLeading" destination="0hb-TC-77u" id="ket-ke-O9b"/>
                 <outlet property="constraintTextViewTop" destination="ZsI-iu-9nR" id="lLk-vy-6fc"/>
-                <outlet property="constraintTextViewTrailing" destination="lmb-AV-eyD" id="Wte-aN-nS3"/>
+                <outlet property="constraintTextViewTrailing" destination="vVY-rg-Rwc" id="3h6-ro-3KS"/>
                 <outlet property="scrollView" destination="WNX-pj-5AB" id="Qqy-Ny-mng"/>
                 <outlet property="sendButton" destination="hE9-hU-Ci1" id="VFQ-Pb-J37"/>
                 <outlet property="tabBarContainerHeightConstraint" destination="vwa-F7-EIB" id="d3G-fs-hEH"/>
