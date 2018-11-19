@@ -49,6 +49,7 @@ open class ChatInputBar: ReusableXibView {
     @IBOutlet weak var scrollView: HorizontalStackScrollView!
     @IBOutlet weak var textView: ExpandableTextView!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var tabSelectionContainer: UIView!
     @IBOutlet weak var topBorderHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet var constraintsForHiddenTextView: [NSLayoutConstraint]!
@@ -231,7 +232,7 @@ extension ChatInputBar {
         self.constraintTextViewBottom.constant = appearance.textInputAppearance.textViewMargins.bottom
         self.tabBarInterItemSpacing = appearance.tabBarAppearance.interItemSpacing
         self.tabBarContentInsets = appearance.tabBarAppearance.contentInsets
-        self.scrollView.backgroundColor = appearance.tabBarAppearance.backgroundColor
+        self.tabSelectionContainer.backgroundColor = appearance.tabBarAppearance.backgroundColor
         self.sendButton.contentEdgeInsets = appearance.sendButtonAppearance.insets
         self.sendButton.setTitle(appearance.sendButtonAppearance.title, for: .normal)
         appearance.sendButtonAppearance.titleColors.forEach { (state, color) in
