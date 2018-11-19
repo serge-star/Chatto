@@ -102,7 +102,7 @@ open class BaseChatViewController: UIViewController, UICollectionViewDataSource,
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        self.addCollectionView()
+        self.setUpCollectionView()
         self.addInputViews()
         self.addBottomSpaceView()
         self.setupKeyboardTracker()
@@ -131,7 +131,7 @@ open class BaseChatViewController: UIViewController, UICollectionViewDataSource,
         self.keyboardTracker.stopTracking()
     }
 
-    private func addCollectionView() {
+    private func setUpCollectionView() {
         self.collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.createCollectionViewLayout())
         self.collectionView.contentInset = self.layoutConfiguration.contentInsets
         self.collectionView.scrollIndicatorInsets = self.layoutConfiguration.scrollIndicatorInsets
@@ -143,14 +143,11 @@ open class BaseChatViewController: UIViewController, UICollectionViewDataSource,
         self.collectionView.allowsSelection = false
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.autoresizingMask = UIViewAutoresizing()
-        self.view.addSubview(self.collectionView)
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .top, relatedBy: .equal, toItem: self.collectionView, attribute: .top, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: self.collectionView, attribute: .leading, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: self.collectionView, attribute: .bottom, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: self.collectionView, attribute: .trailing, multiplier: 1, constant: 0))
+        (self.view as? BaseChatViewControllerViewProtocol)?.installChatCollectionView(self.collectionView)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.chatto_setContentInsetAdjustment(enabled: false, in: self)
+
 
         self.accessoryViewRevealer = AccessoryViewRevealer(collectionView: self.collectionView)
 

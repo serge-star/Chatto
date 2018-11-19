@@ -27,6 +27,7 @@ import Foundation
 // If you wish to use your custom view instead of BaseChatViewControllerView, you must implement this protocol.
 public protocol BaseChatViewControllerViewProtocol: class {
     var bmaInputAccessoryView: UIView? { get set }
+    func installChatCollectionView(_ collectionView: UICollectionView)
 }
 
 // http://stackoverflow.com/questions/24596031/uiviewcontroller-with-inputaccessoryview-is-not-deallocated
@@ -36,5 +37,13 @@ final class BaseChatViewControllerView: UIView, BaseChatViewControllerViewProtoc
 
     override var inputAccessoryView: UIView? {
         return self.bmaInputAccessoryView
+    }
+
+    func installChatCollectionView(_ collectionView: UICollectionView) {
+        self.addSubview(collectionView)
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: collectionView, attribute: .top, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: collectionView, attribute: .leading, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: collectionView, attribute: .bottom, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: collectionView, attribute: .trailing, multiplier: 1, constant: 0))
     }
 }
